@@ -1,4 +1,4 @@
-package pansong291.testapp;
+package pansong291.Vcut;
 
 import android.app.*;
 import android.os.*;
@@ -10,6 +10,5 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        //注释
     }
 }
