@@ -1,7 +1,8 @@
-package pansong291.Vcut;
+package pansong291.Vcut.ui;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import pansong291.Vcut.R;
 import pansong291.crash.CrashApplication;
 
 public class ErrorActivity extends Zactivity

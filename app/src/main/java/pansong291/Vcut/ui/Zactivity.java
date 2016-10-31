@@ -1,8 +1,9 @@
-package pansong291.Vcut;
+package pansong291.Vcut.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
 import pansong291.crash.ActivityControl;
+import android.widget.Toast;
 
 public class Zactivity extends Activity
 {
@@ -28,6 +29,14 @@ public class Zactivity extends Activity
   ActivityControl.getActivityControl().removeActivity(this);
  }
  
+ public void toast(String s)
+ {
+  toast(s,0);
+ }
  
+ public void toast(String s,int i)
+ {
+  Toast.makeText(this,s,i).show();
+ }
  
 }
