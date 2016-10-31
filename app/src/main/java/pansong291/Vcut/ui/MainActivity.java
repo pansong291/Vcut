@@ -40,7 +40,7 @@ public class MainActivity extends Zactivity
  ListFolderAdapter listAdapter;
  MyOnClickListener myOnClickListener;
  
- float screenH,screenW;
+ private float screenH,screenW;
  String currentVideoPath;
  
  @Override
@@ -69,23 +69,23 @@ public class MainActivity extends Zactivity
      if(p3)//如果是用户改变SeekBar
      {
       txt_all_time.setText(Utils.getVideoTime(p2));
-      skb_going=false;
      }
     }
     @Override
     public void onStartTrackingTouch(SeekBar p1)
     {
      txt_all_time.setText(Utils.getVideoTime(p1.getProgress()));
+     skb_not_user_change=false;
     }
     @Override
     public void onStopTrackingTouch(SeekBar p1)
     {
-     if(videoView!=null)
+     if(videoView.getDuration()>0)
      {
       //设置当前播放的位置
       videoView.seekTo(p1.getProgress());
       txt_all_time.setText(Utils.getVideoTime(int_video_all_time));
-      skb_going=true;
+      skb_not_user_change=true;
      }
     }
   });
@@ -160,14 +160,14 @@ public class MainActivity extends Zactivity
  }
  
  private final static int NONE=0,PROGRESS_CHANGED=1;
- private boolean skb_going=true;
+ private boolean skb_not_user_change=true;
  Handler myHandler=new Handler()
  {
   @Override
   public void handleMessage(Message msg)
   {
    int i=videoView.getCurrentPosition();
-   if(skb_going)
+   if(skb_not_user_change)
     skb.setProgress(i);
    txt_now_time.setText(Utils.getVideoTime(i));
    sendEmptyMessage(PROGRESS_CHANGED);
@@ -182,19 +182,20 @@ public class MainActivity extends Zactivity
 
  public void onSelectedClick(View v)
  {
-  if(videoView==null)return;
+  if(videoView.getDuration()<0)return;
   BL.getBL().addToPics(Utils.getVideoPicture(currentVideoPath,videoView.getCurrentPosition()));
   txt_select_pic.setText("已选取"+BL.getBL().getPicsNum()+"张");
  }
  
  public void onCompletionClick(View v)
  {
-  
+  if(BL.getBL().getPicsNum()>0)
+   startActivity(new Intent(MainActivity.this,EditPicActivity.class));
  }
  
  public void onPlayPauseClick(View v)
  {
-  if(videoView==null)return;
+  if(videoView.getDuration()<0)return;
   if(videoView.isPlaying())
    videoView.pause();
   else
@@ -203,7 +204,7 @@ public class MainActivity extends Zactivity
  
  public void onGoForwardClick(View v)
  {
-  if(videoView==null)return;
+  if(videoView.getDuration()<0)return;
   if(int_video_all_time-videoView.getCurrentPosition()>5000)
    videoView.seekTo(videoView.getCurrentPosition()+5000);
   else
@@ -212,7 +213,7 @@ public class MainActivity extends Zactivity
  
  public void onGoBackClick(View v)
  {
-  if(videoView==null)return;
+  if(videoView.getDuration()<0)return;
   if(videoView.getCurrentPosition()>5000)
    videoView.seekTo(videoView.getCurrentPosition()-5000);
   else
@@ -221,7 +222,7 @@ public class MainActivity extends Zactivity
  
  public void onBehindClick(View v)
  {
-  if(videoView==null)return;
+  if(videoView.getDuration()<0)return;
   if(int_video_all_time-videoView.getCurrentPosition()>1000)
    videoView.seekTo(videoView.getCurrentPosition()+1000);
   else
@@ -230,7 +231,7 @@ public class MainActivity extends Zactivity
  
  public void onBeforeClick(View v)
  {
-  if(videoView==null)return;
+  if(videoView.getDuration()<0)return;
   if(videoView.getCurrentPosition()>1000)
    videoView.seekTo(videoView.getCurrentPosition()-1000);
   else
@@ -289,9 +290,15 @@ public class MainActivity extends Zactivity
  }
 
  @Override
+ protected void onResume()
+ {
+  super.onResume();
+  txt_select_pic.setText("已选取"+BL.getBL().getPicsNum()+"张");
+ }
+ 
+ @Override
  public void onBackPressed()
  {
-  // TODO: Implement this method
   super.onBackPressed();
   videoView.stopPlayback();
   System.exit(0);

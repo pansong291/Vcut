@@ -34,6 +34,19 @@ public class BL
  
  //已截取图片
  private ArrayList<Bitmap>pics=new ArrayList<Bitmap>();
+ private int currentPic;
+ public void setCurrentPic(Bitmap b)
+ {
+  currentPic=pics.indexOf(b);
+ }
+ public void setCurrentPic(int i)
+ {
+  currentPic=i;
+ }
+ public int getCurrentPic()
+ {
+  return currentPic;
+ }
  public void setPics(ArrayList<Bitmap>pics)
  {
   this.pics=pics;

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<RelativeLayout
+		android:layout_height="wrap_content"
+		android:background="#000000"
+		android:layout_width="match_parent">
+
+		<ImageView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:src="@android:drawable/ic_delete"
+			android:id="@+id/imageview"
+			android:layout_centerInParent="true"/>
+
+		<pansong291.Vcut.ui.SelectView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/sectview"
+			android:layout_alignBottom="@id/imageview"
+			android:layout_alignTop="@id/imageview"/>
+
+	</RelativeLayout>
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal">
+
+			<Button
+				style="?android:attr/buttonStyleSmall"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="&lt;"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:textColor="#000000"
+				android:background="@drawable/button_background"
+				android:layout_weight="1.0"
+				android:onClick="onBeforePicClick"/>
+
+			<View
+				android:background="?android:attr/dividerHorizontal"
+				android:layout_height="match_parent"
+				android:layout_width="1dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginTop="10dp"/>
+
+			<Button
+				style="?android:attr/buttonStyleSmall"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="X"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:textColor="#000000"
+				android:background="@drawable/button_background"
+				android:onClick="onDeletePicClick"/>
+
+			<View
+				android:background="?android:attr/dividerHorizontal"
+				android:layout_height="match_parent"
+				android:layout_width="1dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginTop="10dp"/>
+
+			<Button
+				style="?android:attr/buttonStyleSmall"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="&gt;"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:textColor="#000000"
+				android:background="@drawable/button_background"
+				android:layout_weight="1.0"
+				android:onClick="onBehindPicClick"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:gravity="center"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp">
+
+			<RadioGroup
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_weight="1.0">
+
+				<RadioButton
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:button="@null"
+					android:background="@drawable/radio_btn"
+					android:text="保留全部"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:textColor="#000000"
+					android:layout_weight="1.0"
+					android:onClick="onSaveAllClick"
+					android:id="@+id/btn_save_all"
+                    android:checked="true"
+					style="?android:attr/buttonStyleSmall"/>
+
+				<View
+					android:background="?android:attr/dividerHorizontal"
+					android:layout_height="match_parent"
+					android:layout_width="1dp"
+					android:layout_marginBottom="10dp"
+					android:layout_marginTop="10dp"/>
+
+				<RadioButton
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:button="@null"
+					android:background="@drawable/radio_btn"
+					android:text="保留上部"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:textColor="#000000"
+					android:layout_weight="1.0"
+					android:onClick="onSaveUpClick"
+					android:id="@+id/btn_save_up"
+					style="?android:attr/buttonStyleSmall"/>
+
+				<View
+					android:background="?android:attr/dividerHorizontal"
+					android:layout_height="match_parent"
+					android:layout_width="1dp"
+					android:layout_marginBottom="10dp"
+					android:layout_marginTop="10dp"/>
+
+				<RadioButton
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:button="@null"
+					android:background="@drawable/radio_btn"
+					android:text="保留下部"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:textColor="#000000"
+					android:layout_weight="1.0"
+					android:onClick="onSaveDownClick"
+					android:id="@+id/btn_save_down"
+					style="?android:attr/buttonStyleSmall"/>
+
+			</RadioGroup>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:orientation="vertical">
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="︿"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:textColor="#000000"
+					android:background="@drawable/button_background"
+					android:onClick="onUpLineClick"/>
+
+				<View
+					android:background="?android:attr/dividerVertical"
+					android:layout_height="1dp"
+					android:layout_width="match_parent"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="﹀"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:textColor="#000000"
+					android:background="@drawable/button_background"
+					android:onClick="onDownLineClick"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>
+
