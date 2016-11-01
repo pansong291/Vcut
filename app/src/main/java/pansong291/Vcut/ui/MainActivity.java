@@ -183,7 +183,7 @@ public class MainActivity extends Zactivity
  public void onSelectedClick(View v)
  {
   if(videoView.getDuration()<0)return;
-  BL.getBL().addToPics(Utils.getVideoPicture(currentVideoPath,videoView.getCurrentPosition()));
+  BL.getBL().addToPics(new MyBitmap(Utils.getVideoPicture(currentVideoPath,videoView.getCurrentPosition())));
   txt_select_pic.setText("已选取"+BL.getBL().getPicsNum()+"张");
  }
  

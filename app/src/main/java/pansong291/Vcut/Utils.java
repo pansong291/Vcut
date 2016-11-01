@@ -10,6 +10,13 @@ import java.util.Collections;
 public class Utils
 {
  
+ //裁剪图片
+ public static Bitmap ImageCrop(Bitmap bitmap,int y1,int y2)
+ {
+  int w=bitmap.getWidth();//得到图片的宽
+  return Bitmap.createBitmap(bitmap,0,y1,w,y2);
+ }
+ 
  //转换视频时间
  public static String getVideoTime(int ti)
  {

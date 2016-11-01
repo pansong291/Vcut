@@ -8,6 +8,7 @@
 	<RelativeLayout
 		android:layout_height="wrap_content"
 		android:background="#000000"
+		android:id="@+id/reLayout"
 		android:layout_width="match_parent">
 
 		<ImageView
@@ -92,67 +93,84 @@
 			android:paddingLeft="10dp"
 			android:paddingRight="10dp">
 
-			<RadioGroup
+			<LinearLayout
 				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:orientation="vertical"
 				android:layout_weight="1.0">
 
-				<RadioButton
+				<RadioGroup
 					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:button="@null"
-					android:background="@drawable/radio_btn"
-					android:text="保留全部"
-					android:textAppearance="?android:attr/textAppearanceSmall"
-					android:textColor="#000000"
-					android:layout_weight="1.0"
-					android:onClick="onSaveAllClick"
-					android:id="@+id/btn_save_all"
-                    android:checked="true"
-					style="?android:attr/buttonStyleSmall"/>
+					android:layout_width="match_parent"
+					android:orientation="horizontal">
 
-				<View
-					android:background="?android:attr/dividerHorizontal"
-					android:layout_height="match_parent"
-					android:layout_width="1dp"
-					android:layout_marginBottom="10dp"
-					android:layout_marginTop="10dp"/>
+					<RadioButton
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:button="@null"
+						android:background="@drawable/radio_btn"
+						android:text="保留全部"
+						android:textAppearance="?android:attr/textAppearanceSmall"
+						android:textColor="#000000"
+						android:layout_weight="1.0"
+						android:onClick="onSaveAllClick"
+						android:id="@+id/btn_save_all"
+						android:checked="true"
+						style="?android:attr/buttonStyleSmall"/>
 
-				<RadioButton
+					<View
+						android:background="?android:attr/dividerHorizontal"
+						android:layout_height="match_parent"
+						android:layout_width="1dp"
+						android:layout_marginBottom="10dp"
+						android:layout_marginTop="10dp"/>
+
+					<RadioButton
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:button="@null"
+						android:background="@drawable/radio_btn"
+						android:text="保留上部"
+						android:textAppearance="?android:attr/textAppearanceSmall"
+						android:textColor="#000000"
+						android:layout_weight="1.0"
+						android:onClick="onSaveUpClick"
+						android:id="@+id/btn_save_up"
+						style="?android:attr/buttonStyleSmall"/>
+
+					<View
+						android:background="?android:attr/dividerHorizontal"
+						android:layout_height="match_parent"
+						android:layout_width="1dp"
+						android:layout_marginBottom="10dp"
+						android:layout_marginTop="10dp"/>
+
+					<RadioButton
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:button="@null"
+						android:background="@drawable/radio_btn"
+						android:text="保留下部"
+						android:textAppearance="?android:attr/textAppearanceSmall"
+						android:textColor="#000000"
+						android:layout_weight="1.0"
+						android:onClick="onSaveDownClick"
+						android:id="@+id/btn_save_down"
+						style="?android:attr/buttonStyleSmall"/>
+
+				</RadioGroup>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
 					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:button="@null"
-					android:background="@drawable/radio_btn"
-					android:text="保留上部"
-					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:layout_width="match_parent"
+					android:text="完成"
 					android:textColor="#000000"
-					android:layout_weight="1.0"
-					android:onClick="onSaveUpClick"
-					android:id="@+id/btn_save_up"
-					style="?android:attr/buttonStyleSmall"/>
-
-				<View
-					android:background="?android:attr/dividerHorizontal"
-					android:layout_height="match_parent"
-					android:layout_width="1dp"
-					android:layout_marginBottom="10dp"
-					android:layout_marginTop="10dp"/>
-
-				<RadioButton
-					android:layout_height="wrap_content"
-					android:layout_width="wrap_content"
-					android:button="@null"
-					android:background="@drawable/radio_btn"
-					android:text="保留下部"
 					android:textAppearance="?android:attr/textAppearanceSmall"
-					android:textColor="#000000"
-					android:layout_weight="1.0"
-					android:onClick="onSaveDownClick"
-					android:id="@+id/btn_save_down"
-					style="?android:attr/buttonStyleSmall"/>
+					android:onClick="onCompletionClick"
+					android:background="@drawable/button_background"/>
 
-			</RadioGroup>
+			</LinearLayout>
 
 			<LinearLayout
 				android:layout_height="wrap_content"

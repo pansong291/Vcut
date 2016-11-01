@@ -21,6 +21,8 @@
             android:name=".ui.ErrorActivity"/>
         <activity
             android:name=".ui.EditPicActivity"/>
+        <activity
+            android:name=".ui.SortPicActivity"/>
     </application>
 
 <uses-permission android:name="android.permission.INTERNET"/>

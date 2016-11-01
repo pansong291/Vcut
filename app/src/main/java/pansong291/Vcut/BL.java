@@ -2,6 +2,7 @@ package pansong291.Vcut;
 
 import android.graphics.Bitmap;
 import java.util.ArrayList;
+import pansong291.Vcut.ui.MyBitmap;
 
 public class BL
 {
@@ -33,9 +34,9 @@ public class BL
  }
  
  //已截取图片
- private ArrayList<Bitmap>pics=new ArrayList<Bitmap>();
+ private ArrayList<MyBitmap>pics=new ArrayList<MyBitmap>();
  private int currentPic;
- public void setCurrentPic(Bitmap b)
+ public void setCurrentPic(MyBitmap b)
  {
   currentPic=pics.indexOf(b);
  }
@@ -47,11 +48,11 @@ public class BL
  {
   return currentPic;
  }
- public void setPics(ArrayList<Bitmap>pics)
+ public void setPics(ArrayList<MyBitmap>pics)
  {
   this.pics=pics;
  }
- public void addToPics(Bitmap bp)
+ public void addToPics(MyBitmap bp)
  {
   pics.add(bp);
  }
@@ -59,7 +60,7 @@ public class BL
  {
   return pics.size();
  }
- public Bitmap getPic(int i)
+ public MyBitmap getPic(int i)
  {
   return pics.get(i);
  }
@@ -67,9 +68,36 @@ public class BL
  {
   pics.remove(i);
  }
- public void remvePic(Bitmap bp)
+ public void remvePic(MyBitmap bp)
  {
   pics.remove(bp);
+ }
+ 
+ //已编辑图片
+ private ArrayList<Bitmap>picCs=new ArrayList<Bitmap>();
+ public void setPicCs(ArrayList<Bitmap>p)
+ {
+  picCs=p;
+ }
+ public void addToPicCs(Bitmap bp)
+ {
+  picCs.add(bp);
+ }
+ public int getPicCsNum()
+ {
+  return picCs.size();
+ }
+ public Bitmap getPicC(int i)
+ {
+  return picCs.get(i);
+ }
+ public void removePicC(int i)
+ {
+  picCs.remove(i);
+ }
+ public void remvePicC(Bitmap bp)
+ {
+  picCs.remove(bp);
  }
  
 }
