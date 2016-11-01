@@ -10,11 +10,13 @@ import android.view.View.OnTouchListener;
 import android.view.MotionEvent;
 import android.widget.RadioButton;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class EditPicActivity extends Zactivity
 {
  //界面视图
  View relayout;
+ TextView txtPicNum;
  ImageView imgv;
  SelectView sectv;
  RadioButton radio_all,radio_up,radio_down;
@@ -37,6 +39,8 @@ public class EditPicActivity extends Zactivity
  {
   screenH=getWindowManager().getDefaultDisplay().getHeight()*2/5;
   screenW=getWindowManager().getDefaultDisplay().getWidth();
+  
+  txtPicNum=(TextView)findViewById(R.id.textview_pic_num);
   
   relayout=findViewById(R.id.reLayout);
   LayoutParams lp1=relayout.getLayoutParams();
@@ -79,6 +83,7 @@ public class EditPicActivity extends Zactivity
   
  private void setCurrentPic(MyBitmap bp1)
  {
+  txtPicNum.setText("当前第"+(BL.getBL().getPicPosition(bp1)+1)+"张");
   imgv.setImageBitmap(bp1.bitmap);
   //获取图片宽高
   float vh=bp1.bitmap.getHeight();

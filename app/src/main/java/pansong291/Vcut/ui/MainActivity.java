@@ -241,7 +241,7 @@ public class MainActivity extends Zactivity
  //载入视频
  private void initVideo(String fp)
  {
-  toast("你选的视频是："+fp);
+  //toast("你选的视频是："+fp);
   currentVideoPath=fp;
   videoView.setVideoPath(fp);
   //获取视频宽高

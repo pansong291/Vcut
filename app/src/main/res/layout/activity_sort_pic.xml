@@ -7,7 +7,8 @@
 
 	<ScrollView
 		android:layout_height="wrap_content"
-		android:layout_width="match_parent">
+		android:layout_width="match_parent"
+		android:layout_weight="1.0">
 
 		<RelativeLayout
 			android:layout_height="wrap_content"
@@ -32,6 +33,59 @@
 		</RelativeLayout>
 
 	</ScrollView>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal">
+
+			<Button
+				style="?android:attr/buttonStyleSmall"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="上移"
+				android:onClick="onMoveUpClick"
+				android:textColor="#000000"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_weight="1.0"
+				android:background="@drawable/button_background"/>
+
+			<View
+				android:background="?android:attr/dividerHorizontal"
+				android:layout_height="match_parent"
+				android:layout_width="1dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginTop="10dp"/>
+
+			<Button
+				style="?android:attr/buttonStyleSmall"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="下移"
+				android:onClick="onMoveDownClick"
+				android:textColor="#000000"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_weight="1.0"
+				android:background="@drawable/button_background"/>
+
+		</LinearLayout>
+
+		<Button
+			style="?android:attr/buttonStyleSmall"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="完成"
+            android:onClick="onCompletionClick"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textColor="#000000"
+			android:background="@drawable/button_background"/>
+
+	</LinearLayout>
 
 </LinearLayout>
 

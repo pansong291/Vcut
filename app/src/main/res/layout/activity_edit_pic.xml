@@ -3,7 +3,16 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:gravity="center_horizontal">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+        android:id="@+id/textview_pic_num"
+		android:text="当前第1张"
+		android:textColor="#000000"/>
 
 	<RelativeLayout
 		android:layout_height="wrap_content"

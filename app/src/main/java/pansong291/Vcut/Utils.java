@@ -1,14 +1,58 @@
 package pansong291.Vcut;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.media.MediaMetadataRetriever;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Utils
 {
+ 
+ //将图片以文件写出
+ public static boolean createImageFile(Context c,Bitmap bmp)
+ {
+  String path="/storage/sdcard0/Pictures";
+  // 首先保存图片
+  File appDir=new File(path);
+  if(!appDir.exists())
+  {
+   appDir.mkdir();
+  }
+
+  String fileName=System.currentTimeMillis()+"_Vcut.jpg";
+  File file=new File(appDir,fileName);
+  /***/
+  try{
+   FileOutputStream fos=new FileOutputStream(file);
+   bmp.compress(CompressFormat.JPEG,100,fos);
+   fos.flush();
+   fos.close();
+  }catch(Exception e)
+  {
+   return false;
+  }
+/***
+  //其次把文件插入到系统图库
+  try {
+   MediaStore.Images.Media.insertImage(
+   c.getContentResolver(),file.getAbsolutePath(),fileName,null);
+  }catch(Exception e){}
+  // 最后通知图库更新
+  //c.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,Uri.parse("file://"+path)));
+ /***/
+  return true;
+ }
  
  //裁剪图片
  public static Bitmap ImageCrop(Bitmap bitmap,int y1,int y2)

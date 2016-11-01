@@ -17,7 +17,7 @@ public class BL
  }
  
  //当前目录
- private String strCurrentPath="/storage/emulated/0/DCIM/Camera";//"/storage";
+ private String strCurrentPath="/storage";//"/storage";
  public String getCurrentPath(){return strCurrentPath;}
  public void addToCurrentPath(String s)
  {
@@ -48,13 +48,20 @@ public class BL
  {
   return currentPic;
  }
- public void setPics(ArrayList<MyBitmap>pics)
+ public void setPics(ArrayList<MyBitmap>p)
  {
-  this.pics=pics;
+  if(p==null)
+   pics.clear();
+  else
+   pics=p;
  }
  public void addToPics(MyBitmap bp)
  {
   pics.add(bp);
+ }
+ public int getPicPosition(MyBitmap bp)
+ {
+  return pics.indexOf(bp);
  }
  public int getPicsNum()
  {
@@ -77,7 +84,20 @@ public class BL
  private ArrayList<Bitmap>picCs=new ArrayList<Bitmap>();
  public void setPicCs(ArrayList<Bitmap>p)
  {
-  picCs=p;
+  if(p==null)
+   picCs.clear();
+  else
+   picCs=p;
+ }
+ public ArrayList<Bitmap> getPicCs()
+ {
+  return picCs;
+ }
+ public void exchangePicC(int a,int b)
+ {
+  Bitmap c=picCs.get(a);
+  picCs.set(a,picCs.get(b));
+  picCs.set(b,c);
  }
  public void addToPicCs(Bitmap bp)
  {
