@@ -23,6 +23,8 @@ import java.io.File;
 import pansong291.Vcut.BL;
 import pansong291.Vcut.R;
 import pansong291.Vcut.Utils;
+import android.net.Uri;
+import android.provider.MediaStore;
 
 public class MainActivity extends Zactivity 
 {
@@ -273,8 +275,9 @@ public class MainActivity extends Zactivity
   //此处的requestCode用于判断接收的Activity是不是你想要的那个
   if(resultCode==RESULT_OK&&requestCode==0)
   {
+   //toast("path="+data.getData().getPath()+"\ntoString="+data.getData().toString()+"\nEncodedPath="+data.getData().getEncodedPath(),1);
    //获得视频的路径并加载视频
-   initVideo(data.getData().getPath());
+   initVideo(Utils.getAbsolutePath(this,data.getData(),MediaStore.Video.Media.DATA));
    listDialog.dismiss();
   }else if(resultCode==RESULT_OK)
   {

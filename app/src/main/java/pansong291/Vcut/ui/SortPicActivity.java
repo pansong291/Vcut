@@ -132,6 +132,8 @@ public class SortPicActivity extends Zactivity
    canvas.drawBitmap(bitmap2, 120, 350, null);
    //120、350为bitmap2写入点的x、y坐标
   */
+  dimg.setVisibility(8);
+  prog.setVisibility(0);
   adg.show();
   new Thread(new myRunnable()).start();
  }
@@ -141,6 +143,7 @@ public class SortPicActivity extends Zactivity
   @Override
   public void handleMessage(Message msg)
   {
+   dimg.setVisibility(0);
    prog.setVisibility(8);
    dimg.setImageBitmap((Bitmap)msg.obj);
    if(msg.arg1!=0)

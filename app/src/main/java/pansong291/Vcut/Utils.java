@@ -1,20 +1,18 @@
 package pansong291.Vcut;
 
 import android.content.Context;
-import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import android.app.Activity;
 
 public class Utils
 {
@@ -127,7 +125,24 @@ public class Utils
   return isVideo;
  }
  
- 
+ //从Uri中获取文件路径
+ public static String getAbsolutePath(Activity c,Uri uri,String s) 
+ {
+  try{
+   String [] proj={s};
+   Cursor cursor=c.managedQuery(uri,
+                                proj,  // Which columns to return
+                                null,  // WHERE clause; which rows to return (all rows)
+                                null,  // WHERE clause selection arguments (none)
+                                null); // Order-by clause (ascending by name)
+   int column_index=cursor.getColumnIndexOrThrow(proj[0]);
+   cursor.moveToFirst();
+   return cursor.getString(column_index);
+  }catch(Exception e)
+  {
+   return uri.getPath();
+  }
+ }
  
  
  
